@@ -1,0 +1,18 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h2>Using npm packages in .NET Core</h2>
+
+@section Scripts {
+    <script>
+        const axios = require('axios');
+        axios.get('https://jsonplaceholder.typicode.com/posts/1')
+            .then(function (response) {
+                console.log(response.data);
+                document.querySelector("p").innerText += `\nData from Axios: ${response.data.title}`;
+            });
+    </script>
+}
